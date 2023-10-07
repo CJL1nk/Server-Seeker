@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mcping-js": "^1.5.0",
+    "mcpinger": "^0.1.8"
+  }
+}
