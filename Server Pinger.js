@@ -13,25 +13,27 @@ function main() {
 
     const randomIP = generateRandomIP();
 
-    mcpinger
-        .java({ host: randomIP })
-        .then((res) => {
-            delete res.favicon;
-            res.ip = randomIP;
+    mcpinger.java({ host: randomIP }).then((res) => {
 
-            console.log(res);
+        delete res.favicon;
+        res.ip = randomIP;
 
-            let existingData = [];
-            if (fs.existsSync(outputFile)) {
-                existingData = JSON.parse(fs.readFileSync(outputFile));
-            }
-            existingData.push(res);
-            fs.writeFileSync(outputFile, JSON.stringify(existingData, null, 2));
+        console.log(res);
+
+        let existingData = [];
+        if (fs.existsSync(outputFile)) {
+            existingData = JSON.parse(fs.readFileSync(outputFile));
+        }
+        existingData.push(res);
+
+        fs.writeFileSync(outputFile, JSON.stringify(existingData, null, 2));
         })
         .catch((error) => {
+
             if (error.message === 'Socket timeout') {
                 console.log(`Could not establish connection to: ${randomIP}`);
-            } else {
+            }
+            else {
                 console.error(error);
             }
         });
