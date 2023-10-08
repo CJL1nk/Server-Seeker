@@ -11,7 +11,7 @@ const outputFile = 'server_info.json';
 const outputFile2 = 'found_ips.json';
 
 const intervalTime = 100;
-const maxThreads = 25;
+const maxThreads = 50;
 
 var currentThreads = 0;
 
