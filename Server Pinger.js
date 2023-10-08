@@ -5,12 +5,15 @@ let mcpinger = require('mcpinger');
 //########################################################
 
 // SET TO TRUE IF YOU WANT TO LOG ALL IPS FOUND, EVEN IF NO MINECRAFT SERVER RESPONSE
-let logIPS = false
+let logIPS = false;
 
 const outputFile = 'server_info.json';
 const outputFile2 = 'found_ips.json';
 
-const intervalTime = 1000
+const intervalTime = 100;
+const maxThreads = 25;
+
+var currentThreads = 0;
 
 //########################################################
 
@@ -41,8 +44,7 @@ function main() {
         existingData.push(res);
 
         fs.writeFileSync(outputFile, JSON.stringify(existingData, null, 2));
-        })
-        .catch((error) => {
+        }).catch((error) => {
 
             if (error.message === 'Socket timeout') {
                 console.log(`No network path to ${randomIP}`);
@@ -52,6 +54,7 @@ function main() {
                 console.log(`Path to ${randomIP} found with no Minecraft server`);
 
                 if (logIPS) {
+
                     let existingIPS = []
                     if (fs.existsSync(outputFile2)) {
                         existingIPS = JSON.parse(fs.readFileSync(outputFile2));
@@ -63,18 +66,36 @@ function main() {
             else {
                 console.error(error);
             }
+        }).finally(() => {
+            process.send({ type: 'done' }); // Send a message to the master process.
         });
 }
 
 
 if (cluster.isMaster) {
 
+    cluster.on('exit', (worker, code, signal) => {
+        console.log(`Worker ${worker.process.pid} exited with code ${code}`);
+        currentThreads--;
+        console.log(currentThreads);
+    });
+
     setInterval(() => {
-        const worker = cluster.fork();
-        worker.on('exit', (code, signal) => {
-            console.log(`Worker ${worker.process.pid} exited with code ${code}`);
-        });
+
+        if (currentThreads < maxThreads) {
+            const worker = cluster.fork();
+            currentThreads++;
+            console.log(currentThreads);
+        }
     }, intervalTime);
+
+    cluster.on('message', (worker, message) => {
+
+        if (message.type === 'done') {
+            currentThreads--;
+            console.log(currentThreads);
+        }
+    });
 }
 else {
     main();

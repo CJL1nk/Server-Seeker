@@ -126,3 +126,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 found_ips.json
+server_info.json
