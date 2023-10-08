@@ -4,7 +4,7 @@ let mcpinger = require('mcpinger');
 
 //########################################################
 
-// SET TO TRUE IF YOU WANT TO LOG IPS YOU FIND
+// SET TO TRUE IF YOU WANT TO LOG ALL IPS FOUND, EVEN IF NO MINECRAFT SERVER RESPONSE
 let logIPS = false
 
 const outputFile = 'server_info.json';
