@@ -1,8 +1,16 @@
 const cluster = require('cluster');
 const fs = require('fs');
+let mcpinger = require('mcpinger');
+
+//########################################################
+
+// SET TO TRUE IF YOU WANT TO LOG IPS YOU FIND
+let logIPS = false
+
 const outputFile = 'server_info.json';
 const outputFile2 = 'found_ips.json';
-let mcpinger = require('mcpinger');
+
+//########################################################
 
 
 function generateRandomIP() {
@@ -21,6 +29,7 @@ function main() {
         delete res.favicon;
         res.ip = randomIP;
 
+        console.log('Server found!')
         console.log(res);
 
         let existingData = [];
@@ -40,12 +49,14 @@ function main() {
 
                 console.log(`Path to ${randomIP} found with no Minecraft server`);
 
-                let existingIPS = []
-                if (fs.existsSync(outputFile2)) {
-                    existingIPS = JSON.parse(fs.readFileSync(outputFile2));
+                if (logIPS) {
+                    let existingIPS = []
+                    if (fs.existsSync(outputFile2)) {
+                        existingIPS = JSON.parse(fs.readFileSync(outputFile2));
+                    }
+                    existingIPS.push(randomIP);
+                    fs.writeFileSync(outputFile2, JSON.stringify(existingIPS, null, 2));
                 }
-                existingIPS.push(randomIP);
-                fs.writeFileSync(outputFile2, JSON.stringify(existingIPS, null, 2));
             }
             else {
                 console.error(error);
