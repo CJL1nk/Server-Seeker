@@ -10,6 +10,8 @@ let logIPS = false
 const outputFile = 'server_info.json';
 const outputFile2 = 'found_ips.json';
 
+const intervalTime = 1000
+
 //########################################################
 
 
@@ -45,7 +47,7 @@ function main() {
             if (error.message === 'Socket timeout') {
                 console.log(`No network path to ${randomIP}`);
             }
-            else if (error.code === 'ECONNREFUSED' || error.code === 'ENETUNREACH' || error.code === 'EADDRNOTAVAIL') {
+            else if (error.code === 'ECONNREFUSED' || error.code === 'ENETUNREACH' || error.code === 'EADDRNOTAVAIL' || error.code === 'ECONNRESET') {
 
                 console.log(`Path to ${randomIP} found with no Minecraft server`);
 
@@ -72,7 +74,7 @@ if (cluster.isMaster) {
         worker.on('exit', (code, signal) => {
             console.log(`Worker ${worker.process.pid} exited with code ${code}`);
         });
-    }, 1000);
+    }, intervalTime);
 }
 else {
     main();
