@@ -26,7 +26,19 @@ function generateRandomIP() {
 
 
 function main() {
-
+    // Check if the file exists
+    if (fs.existsSync(outputFile)) {
+      // Get file stats to check if it's empty
+      const stats = fs.statSync(outputFile);
+    
+      if (stats.size === 0) {
+        fs.unlinkSync(outputFile);
+        console.log(`Deleted empty file: ${outputFile}`);
+      } else {
+      }
+    } else {
+    }  
+    
     const randomIP = generateRandomIP();
 
     mcpinger.java({ host: randomIP }).then((res) => {
