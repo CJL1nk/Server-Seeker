@@ -74,28 +74,34 @@ function main() {
 
 if (cluster.isMaster) {
 
-    cluster.on('exit', (worker, code, signal) => {
-        console.log(`Worker ${worker.process.pid} exited with code ${code}`);
-        currentThreads--;
-        console.log(currentThreads);
-    });
+    try {
 
-    setInterval(() => {
-
-        if (currentThreads < maxThreads) {
-            const worker = cluster.fork();
-            currentThreads++;
-            console.log(currentThreads);
-        }
-    }, intervalTime);
-
-    cluster.on('message', (worker, message) => {
-
-        if (message.type === 'done') {
+        cluster.on('exit', (worker, code, signal) => {
+            console.log(`Worker ${worker.process.pid} exited with code ${code}`);
             currentThreads--;
             console.log(currentThreads);
-        }
-    });
+        });
+
+        setInterval(() => {
+
+            if (currentThreads < maxThreads) {
+                const worker = cluster.fork();
+                currentThreads++;
+                console.log(currentThreads);
+            }
+        }, intervalTime);
+
+        cluster.on('message', (worker, message) => {
+
+            if (message.type === 'done') {
+                currentThreads--;
+                console.log(currentThreads);
+            }
+        });
+    }
+    catch(error) {
+        console.log('Unknown error occurred.');
+    }
 }
 else {
     main();
