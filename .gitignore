@@ -127,3 +127,4 @@ dist
 .pnp.*
 found_ips.json
 server_info.json
+error.txt

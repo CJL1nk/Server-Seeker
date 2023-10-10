@@ -10,8 +10,8 @@ let logIPS = false;
 const outputFile = 'server_info.json';
 const outputFile2 = 'found_ips.json';
 
-const intervalTime = 100;
-const maxThreads = 50;
+const intervalTime = 25;
+const maxThreads = 200;
 
 var currentThreads = 0;
 
@@ -80,6 +80,7 @@ function main() {
             }
         }).finally(() => {
             process.send({ type: 'done' }); // Send a message to the master process.
+            process.exit()
         });
 }
 
@@ -89,9 +90,9 @@ if (cluster.isMaster) {
     try {
 
         cluster.on('exit', (worker, code, signal) => {
-            console.log(`Worker ${worker.process.pid} exited with code ${code}`);
+            //console.log(`Worker ${worker.process.pid} exited with code ${code}`);
             currentThreads--;
-            console.log(currentThreads);
+            //console.log(currentThreads);
         });
 
         setInterval(() => {
@@ -99,17 +100,9 @@ if (cluster.isMaster) {
             if (currentThreads < maxThreads) {
                 const worker = cluster.fork();
                 currentThreads++;
-                console.log(currentThreads);
+                console.log('Threads:', currentThreads);
             }
         }, intervalTime);
-
-        cluster.on('message', (worker, message) => {
-
-            if (message.type === 'done') {
-                currentThreads--;
-                console.log(currentThreads);
-            }
-        });
     }
     catch(error) {
         console.log('Unknown error occurred.');
