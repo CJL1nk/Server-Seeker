@@ -1,0 +1,179 @@
+[	
+	{
+		"protocolVersion": 760,
+		"version": "1.19.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		"text": "A Minecraft Server"
+		},
+		"ip": "160.251.97.82"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Paper 1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "Jonny mag cocks"
+		},
+		"ip": "195.90.219.82"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "160.251.203.58"
+	},
+	{
+		"protocolVersion": 760,
+		"version": "1.19.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 8,
+		"playerList": [],
+		"motd": {
+		  "text": "BEEZ!"
+		},
+		"ip": "71.183.43.139"
+	},
+	{
+		"protocolVersion": 754,
+		"version": "Paper 1.16.5",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 1337,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "51.81.150.100"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "Fox"
+		},
+		"ip": "120.78.221.173"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Velocity 1.7.2-1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 500,
+		"playerList": [],
+		"motd": {
+		  "text": "From 8B Server to Beyond"
+		},
+		"ip": "203.218.153.88"
+	},
+	{
+		"protocolVersion": 762,
+		"version": "Cardboard (PaperMC+Fabric) 1.19.4",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "extra": [
+			{
+			  "text": "A Minecraft Server"
+			}
+		  ],
+		  "text": ""
+		},
+		"ip": "213.123.60.60"
+	},
+	{
+		"protocolVersion": 756,
+		"version": "1.17.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "Vines Minecraft Server"
+		},
+		"ip": "172.92.114.190"
+	},
+	{
+		"protocolVersion": 47,
+		"version": "Spigot 1.8.9",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": "A Minecraft Server",
+		"ip": "68.88.102.227"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Paper 1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 250,
+		"playerList": [],
+		"motd": {
+		  "text": ""
+		},
+		"ip": "45.132.89.233"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "1.20.1",
+		"onlinePlayerCount": 2,
+		"maxPlayerCount": 20,
+		"playerList": [
+		  {
+			"uuid": "40d28291-1067-4de8-bc6e-30310ceccfa5",
+			"name": "Mqine0"
+		  },
+		  {
+			"uuid": "cf2f05dc-c889-4dbb-b216-885d3b624bc8",
+			"name": "PaperCups_"
+		  }
+		],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "222.166.228.86"
+	},
+	{
+		"protocolVersion": 761,
+		"version": "1.19.3",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "118.27.24.41"
+	},
+	{
+		"protocolVersion": 756,
+		"version": "1.17.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "8.134.112.134"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "207.211.171.115"
+	}
+]
