@@ -1,4 +1,4 @@
-[	
+[
 	{
 		"protocolVersion": 760,
 		"version": "1.19.2",
@@ -175,5 +175,27 @@
 		  "text": "A Minecraft Server"
 		},
 		"ip": "207.211.171.115"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Paper 1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 100,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "51.195.12.134"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Velocity 1.7.2-1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 500,
+		"playerList": [],
+		"motd": {
+		  "text": ""
+		},
+		"ip": "178.208.245.228"
 	}
 ]
