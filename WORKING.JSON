@@ -197,5 +197,83 @@
 		  "text": ""
 		},
 		"ip": "178.208.245.228"
+	},
+	{
+		"protocolVersion": 762,
+		"version": "1.19.4",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Vanilla Minecraft Server powered by Docker"
+		},
+		"message_from_cj": "THIS ONE IS CRAZYYYYYY FOLLOW THE WODDEN PATH",
+		"ip": "121.200.24.44"
+	},
+	{
+		"protocolVersion": 764,
+		"version": "1.20.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 8,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "74.111.174.72"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Paper 1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "93.104.210.163"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Paper 1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "extra": [
+			{
+			  "bold": true,
+			  "italic": true,
+			  "color": "red",
+			  "text": "Sumotai's"
+			},
+			{
+			  "bold": true,
+			  "italic": true,
+			  "color": "blue",
+			  "text": " Minecraft Server"
+			},
+			{
+			  "text": "\n"
+			},
+			{
+			  "underlined": true,
+			  "color": "yellow",
+			  "text": "Coloniza Proxima Centauri B"
+			}
+		  ],
+		  "text": ""
+		},
+		"ip": "37.135.163.26"
+	},
+	{
+		"protocolVersion": 760,
+		"version": "Paper 1.19.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 120,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "155.94.175.201"
 	}
 ]
