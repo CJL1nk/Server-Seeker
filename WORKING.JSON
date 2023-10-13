@@ -275,5 +275,27 @@
 		  "text": "A Minecraft Server"
 		},
 		"ip": "155.94.175.201"
+	},
+	{
+		"protocolVersion": 764,
+		"version": "1.20.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 4,
+		"playerList": [],
+		"motd": {
+		  "text": "4Netplayers Minecraft Vanilla Server"
+		},
+		"ip": "62.104.10.192"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "160.251.200.35"
 	}
 ]
