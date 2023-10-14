@@ -398,5 +398,16 @@
 		  "text": "A Minecraft Server"
 		},
 		"ip": "51.79.81.166"
+	},
+	{
+		"protocolVersion": 757,
+		"version": "Paper 1.18.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 160,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "51.89.47.30"
 	}
 ]
