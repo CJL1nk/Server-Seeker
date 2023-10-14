@@ -297,5 +297,106 @@
 		  "text": "A Minecraft Server"
 		},
 		"ip": "160.251.200.35"
+	},
+	{
+		"protocolVersion": 762,
+		"version": "1.19.4",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "118.27.4.31"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "45.88.230.246"
+	},
+	{
+		"protocolVersion": 764,
+		"version": "1.20.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "160.251.167.28"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Paper 1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "Mine9 SMP"
+		},
+		"message_from_cj": "spawn is surrounded by lava wall",
+		"ip": "179.61.251.233"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "34.196.102.41"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Paper 1.20.1",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "220.133.19.210"
+	},
+	{
+		"protocolVersion": 762,
+		"version": "Paper 1.19.4",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 72,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "51.81.20.183"
+	},
+	{
+		"protocolVersion": 762,
+		"version": "Paper 1.19.4",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 100,
+		"playerList": [],
+		"motd": {
+		  "text": "repousw"
+		},
+		"message_from_cj": "idek what this is bruh",
+		"ip": "147.135.108.17"
+	},
+	{
+		"protocolVersion": 760,
+		"version": "1.19.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "51.79.81.166"
 	}
 ]
