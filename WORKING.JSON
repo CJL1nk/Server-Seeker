@@ -409,5 +409,16 @@
 		  "text": "A Minecraft Server"
 		},
 		"ip": "51.89.47.30"
+	},
+	{
+		"protocolVersion": 764,
+		"version": "1.20.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 8,
+		"playerList": [],
+		"motd": {
+		  "text": "Hugos very own Java Edition Minecraft Server"
+		},
+		"ip": "81.227.50.79"
 	}
 ]
