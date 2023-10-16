@@ -420,5 +420,58 @@
 		  "text": "Hugos very own Java Edition Minecraft Server"
 		},
 		"ip": "81.227.50.79"
+	},
+	{
+		"protocolVersion": 764,
+		"version": "1.20.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "§4We §cSmash §6Men"
+		},
+		"ip": "67.253.185.63"
+	},
+	{
+		"protocolVersion": 763,
+		"version": "Paper 1.20.1",
+		"onlinePlayerCount": 2,
+		"maxPlayerCount": 20,
+		"playerList": [
+		  {
+			"uuid": "6ae7fd4a-d061-4460-961e-dd5f6f8cef98",
+			"name": "JesterThresher"
+		  },
+		  {
+			"uuid": "f495ee4f-b5c5-4926-9c10-07965f80d27e",
+			"name": "LustrousDragon"
+		  }
+		],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "98.238.233.102"
+	},
+	{
+		"protocolVersion": 764,
+		"version": "1.20.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 20,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "176.57.172.200"
+	},
+	{
+		"protocolVersion": 210,
+		"version": "1.10.2",
+		"onlinePlayerCount": 0,
+		"maxPlayerCount": 30,
+		"playerList": [],
+		"motd": {
+		  "text": "A Minecraft Server"
+		},
+		"ip": "14.198.140.45"
 	}
 ]
