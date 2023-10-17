@@ -2,8 +2,6 @@ const cluster = require('cluster');
 const fs = require('fs');
 let mcpinger = require('mcpinger');
 let path = require('path');
-const axios = require('axios');
-const mineflayer = require('mineflayer');
 
 //########################################################
 
@@ -17,6 +15,7 @@ const maxThreads = 200;
 //########################################################
 
 
+// READ THE FUNCTION NAME RETARD
 function generateRandomIP() {
 	const getRandomNumber = () => Math.floor(Math.random() * 256);
 	const ipParts = Array.from({ length: 4 }, getRandomNumber);
@@ -29,8 +28,14 @@ if (cluster.isMaster) {
 
 	try {
 
+		// IMPORTING THESE PACKAGES DOWN HERE TO IMPROVE PERFORMANCE
+		const axios = require('axios');
+		const mineflayer = require('mineflayer');
+
 		// TOP 10 READABLE CODE
 		process.env.currentOutputFile = (new Date()).toISOString().replace(/[-T:.]/g, '_').slice(0, -5) + '.json';
+
+		// WEBHOOK URLS OBV
 		const joinableWebhookURL = 'https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk';
 		const unjoinableWebhookURL = 'https://discord.com/api/webhooks/1163898887313047603/0wNvJE2IDewRMffUn6IJBSOWTZcrywEW7u7Beh1CcQacyhrTcKb4zjrexotbGnnFByOI';
 		var currentThreads = 0;
@@ -48,8 +53,9 @@ if (cluster.isMaster) {
 		// SENDS DATA TO DISCORD WEBHOOK+
 		cluster.on('message', (worker, message) => {
 
-			console.log(message.ip)
+			console.log(message.ip);
 
+			// CREATE BOT SESSION
 			const bot = mineflayer.createBot({
 				host: message.ip,
 				port: 25565,
@@ -58,12 +64,14 @@ if (cluster.isMaster) {
 				auth: 'microsoft'
 			});
 
+			// SEND MESSAGE TO JOINABLE CHANNEL IF IT WORKS
 			bot.on('spawn', () => {
 				console.log('Server Works');
 				axios.post(joinableWebhookURL,message);
 				bot.end();
 			});
 
+			// SEND MESSAGE TO UNJOINABLE CHANNEL IF IT DOESN'T
 			bot.on('kicked', (reason) => {
 				console.log('Bot was kicked');
 				axios.post(unjoinableWebhookURL,message);
@@ -120,12 +128,12 @@ else {
 		// SEND A MESSAGE BACK TO THE MASTER PROCESS WHICH HANDLES THE WEBHOOK
 		process.send({content: 'React with :white_check_mark: if this server is joinable or :x: if it\'s not', embeds: [{
 			title: 'Server Found',
-			color: 0xFF5733, // Hex color code
+			color: 0x007474,
 			fields: [
 			{
 				name: 'IP: ',
 				value: randomIP,
-				inline: false, // Display inline
+				inline: false,
 			},
 			{
 				name: 'Version: ',
