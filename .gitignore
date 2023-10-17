@@ -129,3 +129,5 @@ found_ips.json
 server_info.json
 error.txt
 Server Data/
+WORKING.JSON
+viewer.py
