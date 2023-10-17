@@ -2,6 +2,7 @@ const cluster = require('cluster');
 const fs = require('fs');
 let mcpinger = require('mcpinger');
 let path = require('path');
+const axios = require('axios');
 
 //########################################################
 
@@ -29,6 +30,7 @@ if (cluster.isMaster) {
 
 		// TOP 10 READABLE CODE
 		process.env.currentOutputFile = (new Date()).toISOString().replace(/[-T:.]/g, '_').slice(0, -5) + '.json';
+		process.env.webhookURL = 'https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk';
 		var currentThreads = 0;
 
 		// CREATE FILES IF THEY DONT EXIST
@@ -40,6 +42,11 @@ if (cluster.isMaster) {
 		cluster.on('exit', (worker, code, signal) => {
 			currentThreads--;
 		});
+
+		// SENDS DATA TO DISCORD WEBHOOK
+		cluster.on('message', (worker, message) => {
+			axios.post('https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk',message)
+		})
 
 		// MAKES NEW PROCESS FORK EVERY {intervalTime} MS
 		setInterval(() => {
@@ -80,6 +87,29 @@ else {
 		// WRITE TO BOTH FILES
 		fs.writeFileSync(mainOutputFile, JSON.stringify(totalExistingData, null, 2));+
 		fs.writeFileSync(path.join(dir, process.env.currentOutputFile), JSON.stringify(currentExistingData, null, 2));
+
+		// SEND A MESSAGE BACK TO THE MASTER PROCESS WHICH HANDLES THE WEBHOOK
+		process.send({content: 'React with :white_check_mark: if this server is joinable or :x: if it\'s not', embeds: [{
+			title: 'Server Found',
+			color: 0xFF5733, // Hex color code
+			fields: [
+			{
+				name: 'IP: ',
+				value: randomIP,
+				inline: false, // Display inline
+			},
+			{
+				name: 'Version: ',
+				value: res.version,
+				inline: true,
+			},
+			{
+				name: 'Max Players:',
+				value: res.maxPlayerCount,
+				inline: true,
+			}
+			]
+		}]});
 
 	})
 	.catch((error) => {
