@@ -31,7 +31,8 @@ if (cluster.isMaster) {
 
 		// TOP 10 READABLE CODE
 		process.env.currentOutputFile = (new Date()).toISOString().replace(/[-T:.]/g, '_').slice(0, -5) + '.json';
-		process.env.webhookURL = 'https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk';
+		const joinableWebhookURL = 'https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk';
+		const unjoinableWebhookURL = 'https://discord.com/api/webhooks/1163898887313047603/0wNvJE2IDewRMffUn6IJBSOWTZcrywEW7u7Beh1CcQacyhrTcKb4zjrexotbGnnFByOI';
 		var currentThreads = 0;
 
 		// CREATE FILES IF THEY DONT EXIST
@@ -44,7 +45,7 @@ if (cluster.isMaster) {
 			currentThreads--;
 		});
 
-		// SENDS DATA TO DISCORD WEBHOOK
+		// SENDS DATA TO DISCORD WEBHOOK+
 		cluster.on('message', (worker, message) => {
 
 			console.log(message.ip)
@@ -59,19 +60,19 @@ if (cluster.isMaster) {
 
 			bot.on('spawn', () => {
 				console.log('Server Works');
-				axios.post('https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk',message);
+				axios.post(joinableWebhookURL,message);
 				bot.end();
 			});
 
 			bot.on('kicked', (reason) => {
 				console.log('Bot was kicked');
-				axios.post('https://discord.com/api/webhooks/1163898887313047603/0wNvJE2IDewRMffUn6IJBSOWTZcrywEW7u7Beh1CcQacyhrTcKb4zjrexotbGnnFByOI',message);
+				axios.post(unjoinableWebhookURL,message);
 				bot.end();
 			});
 
 			bot.on('error', (err) => {
 				console.log('Bot encountered error while joining');
-				axios.post('https://discord.com/api/webhooks/1163898887313047603/0wNvJE2IDewRMffUn6IJBSOWTZcrywEW7u7Beh1CcQacyhrTcKb4zjrexotbGnnFByOI',message);
+				axios.post(unjoinableWebhookURL,message);
 				bot.end();
 			});
 		})
