@@ -36,8 +36,12 @@ if (cluster.isMaster) {
 		process.env.currentOutputFile = (new Date()).toISOString().replace(/[-T:.]/g, '_').slice(0, -5) + '.json';
 
 		// WEBHOOK URLS OBV
-		const joinableWebhookURL = 'https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk';
-		const unjoinableWebhookURL = 'https://discord.com/api/webhooks/1163898887313047603/0wNvJE2IDewRMffUn6IJBSOWTZcrywEW7u7Beh1CcQacyhrTcKb4zjrexotbGnnFByOI';
+		const joinableWebhookURL = 'YOUR WEBHOOK URL';
+		const unjoinableWebhookURL = 'YOUR WEBHOOK URL';
+
+		const username = 'YOUR USERNAME';
+		const password = 'YOUR PASSWORD';
+
 		var currentThreads = 0;
 
 		// CREATE FILES IF THEY DONT EXIST
@@ -59,8 +63,8 @@ if (cluster.isMaster) {
 			const bot = mineflayer.createBot({
 				host: message.ip,
 				port: 25565,
-				username: 'YOUR EMAIL',
-				password: 'YOUR PASSWORD',
+				username: username,
+				password: password,
 				auth: 'microsoft'
 			});
 
