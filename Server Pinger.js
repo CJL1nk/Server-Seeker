@@ -3,6 +3,7 @@ const fs = require('fs');
 let mcpinger = require('mcpinger');
 let path = require('path');
 const axios = require('axios');
+const mineflayer = require('mineflayer');
 
 //########################################################
 
@@ -45,7 +46,34 @@ if (cluster.isMaster) {
 
 		// SENDS DATA TO DISCORD WEBHOOK
 		cluster.on('message', (worker, message) => {
-			axios.post('https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk',message)
+
+			console.log(message.ip)
+
+			const bot = mineflayer.createBot({
+				host: message.ip,
+				port: 25565,
+				username: 'YOUR EMAIL',
+				password: 'YOUR PASSWORD',
+				auth: 'microsoft'
+			});
+
+			bot.on('spawn', () => {
+				console.log('Server Works');
+				axios.post('https://discord.com/api/webhooks/1163633136761057361/6FPCMGIvuzXAR6Sj5BcDTxaYV491x0_L-S2Ig66O6y8O2PQud8qtG3iwB_I3amfPUwnk',message);
+				bot.end();
+			});
+
+			bot.on('kicked', (reason) => {
+				console.log('Bot was kicked');
+				axios.post('https://discord.com/api/webhooks/1163898887313047603/0wNvJE2IDewRMffUn6IJBSOWTZcrywEW7u7Beh1CcQacyhrTcKb4zjrexotbGnnFByOI',message);
+				bot.end();
+			});
+
+			bot.on('error', (err) => {
+				console.log('Bot encountered error while joining');
+				axios.post('https://discord.com/api/webhooks/1163898887313047603/0wNvJE2IDewRMffUn6IJBSOWTZcrywEW7u7Beh1CcQacyhrTcKb4zjrexotbGnnFByOI',message);
+				bot.end();
+			});
 		})
 
 		// MAKES NEW PROCESS FORK EVERY {intervalTime} MS
@@ -109,7 +137,7 @@ else {
 				inline: true,
 			}
 			]
-		}]});
+		}], ip: randomIP});
 
 	})
 	.catch((error) => {
